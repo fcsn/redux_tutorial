@@ -9,17 +9,17 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    onIncrement: () => dispatch(actions.increment()),
+    onIncrement: () => dispatch(actions.increment()),//actions.increment()는 action creator
     onDecrement: () => dispatch(actions.decrement()),
     onSetColor: () => {
-        const color = getRandomColor;
+        const color = getRandomColor();
         dispatch(actions.setColor(color));
     }
 });
 
 const CounterContainer = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps         //mapStateToProps나 mapDispatchToProps가 없을 시에는 컴포넌트에서 this.props.store로 접근 가능
 )(Counter);
 
 
